@@ -1,0 +1,135 @@
+.container {
+  min-height: 100vh;
+  background-image: url('../../assets/pergamino.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  color: #5c3a21;
+}
+
+/* Encabezado compacto */
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+/* Logo más pequeño */
+.logo {
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
+}
+
+/* Número de mesa compacto */
+.mesaContainer {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.mesaNumber {
+  display: inline-block;
+  background-color: rgba(139, 0, 0, 0.7);
+  color: #f5e7d5;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-family: 'HarryP', cursive;
+  font-size: 1.2rem;
+  border: 2px solid #5c3a21;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid de botones compactos */
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+/* Botones en formato horizontal */
+.magicButton {
+  padding: 0.8rem;
+  border: 2px solid #8b5a2b;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background-color: rgba(245, 231, 213, 0.85);
+  color: #5c3a21;
+  display: flex;
+  align-items: center; /* Alineación vertical */
+  gap: 1rem; /* Espacio entre ícono y texto */
+  min-height: 40px; /* Reducimos altura */
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  text-align: left; /* Alineación texto */
+}
+
+/* Tamaño y posición de íconos */
+.magicButton svg {
+  font-size: 1.8rem; /* Un poco más grandes */
+  color: #8b0000;
+  flex-shrink: 0; /* Evita que se encojan */
+  margin-left: 0.5rem;
+}
+
+/* Texto alineado */
+.magicButton span {
+  flex-grow: 1; /* Ocupa espacio disponible */
+  padding-right: 0.5rem;
+}
+
+/* Bordes izquierdos coloridos */
+.servilletas { border-left: 5px solid #8b0000; }
+.sal { border-left: 5px solid #8b0000; }
+.aji { border-left: 5px solid #8b0000; }
+.vasos { border-left: 5px solid #8b0000; }
+.cuenta { border-left: 5px solid #8b0000; }
+.otro { border-left: 5px solid #8b0000; }
+
+/* Efectos hover más pronunciados */
+.magicButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
+  background-color: rgba(245, 231, 213, 0.95);
+}
+
+/* Responsive para móviles */
+@media (max-width: 640px) {
+  .magicButton {
+    min-height: 55px;
+    gap: 0.8rem;
+  }
+  
+  .magicButton svg {
+    font-size: 1.5rem;
+  }
+}
+
+.error_banner {
+  background-color: rgba(153, 0, 0, 0.85);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin: 1rem auto;
+  max-width: 600px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 0 10px #400000;
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'HarryP';
+    src: url('../assets/fonts/HarryP.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'OldLondon';
+    src: url('../assets/fonts/OldLondon.ttf') format('truetype'),
+         url('../assets/fonts/OldLondon.woff2') format('woff2');
+  }

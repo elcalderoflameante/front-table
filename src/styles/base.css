@@ -1,0 +1,11 @@
+:root {
+    --hogwarts-dark: #8b0000;
+    --golden-snitch: #d4af37;
+    --parchment: #f5e7d5;
+  }
+  
+body {
+    background-color: var(--hogwarts-dark);
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }

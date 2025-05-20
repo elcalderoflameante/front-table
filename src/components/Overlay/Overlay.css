@@ -1,0 +1,33 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .animacion-lottie {
+    width: 60%;
+    max-width: 400px;
+  }
+  
+  .mensaje {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  
+  @keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .parpadeo {
+    animation: parpadeo 2s infinite;
+  }
+  
