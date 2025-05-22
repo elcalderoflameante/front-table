@@ -6,7 +6,7 @@ import Overlay from '../../components/Overlay/Overlay';
 import { getEstadoMesa, crearSolicitud } from '../../services/api';
 import { GiMagicSwirl, GiSpellBook, GiSaltShaker, GiGlassShot, GiChiliPepper, GiHoodedFigure } from 'react-icons/gi';
 import logo from '../../assets/logo-caldero.png';
-import {encriptar, desencriptar } from '../../utils/cryptoUtils';  
+import { encriptar, desencriptar } from '../../utils/cryptoUtils';
 
 const solicitudes = [
   { tipo: 'servilletas', icono: <GiMagicSwirl />, clase: styles.servilletas },
@@ -18,14 +18,8 @@ const solicitudes = [
 ];
 
 export default function Mesa() {
-  //console.log(encriptar('1'));
-  //const mesaIdUID = encodeURIComponent('U2FsdGVkX1+/hOVorhtRKoBPcSvtzIfArC9Uge1nTtQ=');
-  //console.log('Mesa UID encriptada:', mesaUID);
-
-  const {mesaId} = useParams();
-  //console.log('Mesa Id:', mesaId);
+  const { mesaId } = useParams();
   const mesaNumber = desencriptar(mesaId);
-  //console.log('Mesa Número:', mesaNumber);
   const [estadoSolicitud, setEstadoSolicitud] = useState(null);
   const [tipoSeleccionado, setTipoSeleccionado] = useState(null);
   const [errorBanner, setErrorBanner] = useState(null);
@@ -84,7 +78,7 @@ export default function Mesa() {
     }
 
     try {
-      await crearSolicitud({ mesa: parseInt(mesaNumber), tipo }); // Usar api.js
+      await crearSolicitud({ mesa: parseInt(mesaNumber), tipo });
       setTipoSeleccionado(tipo);
       setEstadoSolicitud('nuevo');
     } catch (err) {

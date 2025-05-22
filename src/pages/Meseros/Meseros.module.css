@@ -1,0 +1,120 @@
+.container {
+  min-height: 100vh;
+  background-image: url('../../assets/pergamino.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 2rem 1rem;
+  color: #5c3a21;
+  /*font-family: 'OldLondon', cursive, serif;*/
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #8b0000;
+  text-shadow: 1px 2px 6px #f5e7d5, 0 2px 3px #400000;
+  font-family: 'HarryP', cursive, serif;
+}
+
+.list {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(245, 231, 213, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(139, 90, 43, 0.13);
+  padding: 1.5rem 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed #8b0000;
+  padding: 1rem 0.5rem;
+  font-size: 1.1rem;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.button {
+  background: #8b0000;
+  color: #f5e7d5;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  /*font-family: 'OldLondon', cursive, serif;*/
+  box-shadow: 0 2px 6px rgba(139, 90, 43, 0.13);
+}
+
+.button:hover {
+  background: #b22222;
+}
+
+@media (max-width: 600px) {
+  .list {
+    padding: 1rem 0.2rem;
+  }
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+.fecha {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  z-index: 10;
+}
+
+.reloj {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  z-index: 10;
+}
+
+.circuloPrioridad {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.circuloVerde {
+  background: #228B22;
+}
+.circuloAmarillo {
+  background: #b8860b;
+}
+.circuloRojo {
+  background: #b22222;
+}
