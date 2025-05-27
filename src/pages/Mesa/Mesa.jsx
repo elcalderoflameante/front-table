@@ -4,17 +4,19 @@ import useSocket from '../../hooks/useSocket';
 import styles from './Mesa.module.css';
 import Overlay from '../../components/Overlay/Overlay';
 import { getEstadoMesa, crearSolicitud } from '../../services/api';
-import { GiMagicSwirl, GiSpellBook, GiSaltShaker, GiGlassShot, GiChiliPepper, GiHoodedFigure } from 'react-icons/gi';
+import { GiChecklist, GiKetchup, GiMagicSwirl, GiSpellBook, GiSaltShaker, GiGlassShot, GiChiliPepper, GiHoodedFigure } from 'react-icons/gi';
 import logo from '../../assets/logo-caldero.png';
 import { encriptar, desencriptar } from '../../utils/cryptoUtils';
 
 const solicitudes = [
+  { tipo: 'ordenar', icono: <GiChecklist />, clase: styles.servilletas },
+  { tipo: 'mayonesa', icono: <GiKetchup />, clase: styles.servilletas },
   { tipo: 'servilletas', icono: <GiMagicSwirl />, clase: styles.servilletas },
   { tipo: 'sal', icono: <GiSaltShaker />, clase: styles.sal },
   { tipo: 'aji', icono: <GiChiliPepper />, clase: styles.aji },
   { tipo: 'vasos', icono: <GiGlassShot />, clase: styles.vasos },
   { tipo: 'cuenta', icono: <GiSpellBook />, clase: styles.cuenta },
-  { tipo: 'otro', icono: <GiHoodedFigure />, clase: styles.otro }
+  { tipo: 'mesero', icono: <GiHoodedFigure />, clase: styles.otro }
 ];
 
 export default function Mesa() {
@@ -82,9 +84,15 @@ export default function Mesa() {
       setTipoSeleccionado(tipo);
       setEstadoSolicitud('nuevo');
     } catch (err) {
-      console.error('Error al enviar la solicitud:', err.message);
-      setErrorBanner(err.message);
+      let mensaje = 'Error al enviar la solicitud.';
+      if (err.response && err.response.status === 403) {
+        mensaje = 'Solo se puede hacer solicitudes dentro del restaurante.';
+      } else if (err.message) {
+        mensaje = err.message;
+      }
+      setErrorBanner(mensaje);
       setTimeout(() => setErrorBanner(null), 6000);
+      console.error('Error al enviar la solicitud:', err.message);
     }
   };
 
