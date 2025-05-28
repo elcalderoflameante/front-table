@@ -19,11 +19,13 @@ import {
 import CIcon from '@coreui/icons-react';
 import { cilUser, cilLockLocked } from '@coreui/icons';
 import logo from '../../assets/logo-caldero.png';
+import AlertMessage from '../../components/AlertMessage';
 
 export default function Login({ onLogin }) {
     const [username, setUsuario] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [pushError, setPushError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,14 +34,20 @@ export default function Login({ onLogin }) {
             const { data } = await login({ username, password });
             localStorage.setItem('token', data.token);
 
-            // Solicita permiso y suscribe a push después del login exitoso
-            if (Notification.permission === 'granted') {
-                await subscribeUserToPush();
-            } else if (Notification.permission !== 'denied') {
-                const permission = await Notification.requestPermission();
-                if (permission === 'granted') {
+            // Intenta suscribirse a push, pero no detiene el login si falla
+            try {
+                if (Notification.permission === 'granted') {
                     await subscribeUserToPush();
+                } else if (Notification.permission !== 'denied') {
+                    const permission = await Notification.requestPermission();
+                    if (permission === 'granted') {
+                        await subscribeUserToPush();
+                    }
                 }
+            } catch (pushError) {
+                setPushError('No se pudo registrar la suscripción push');
+                // Opcional: muestra un warning, pero no bloquea el login
+                console.warn('No se pudo registrar la suscripción push:', pushError);
             }
 
             onLogin && onLogin(data.token);
@@ -93,7 +101,8 @@ export default function Login({ onLogin }) {
                                                 </CButton>
                                             </CCol>
                                         </CRow>
-                                        {error && <CAlert color="danger" className="mt-3">{error}</CAlert>}
+                                        <AlertMessage color="danger" message={error} className="mt-3" />
+                                        <AlertMessage color="warning" message={pushError} className="mt-2" />
                                     </CForm>
                                 </CCardBody>
                             </CCard>
