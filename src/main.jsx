@@ -8,6 +8,12 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@coreui/coreui/dist/css/coreui.min.css';
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />

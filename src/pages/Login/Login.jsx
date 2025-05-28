@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { login } from '../../services/api';
+import { subscribeUserToPush } from '../../utils/push';
 import {
     CContainer,
     CRow,
@@ -30,6 +31,17 @@ export default function Login({ onLogin }) {
         try {
             const { data } = await login({ username, password });
             localStorage.setItem('token', data.token);
+
+            // Solicita permiso y suscribe a push después del login exitoso
+            if (Notification.permission === 'granted') {
+                await subscribeUserToPush();
+            } else if (Notification.permission !== 'denied') {
+                const permission = await Notification.requestPermission();
+                if (permission === 'granted') {
+                    await subscribeUserToPush();
+                }
+            }
+
             onLogin && onLogin(data.token);
         } catch (err) {
             setError('Usuario o contraseña incorrectos');

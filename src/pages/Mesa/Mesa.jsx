@@ -6,7 +6,7 @@ import Overlay from '../../components/Overlay/Overlay';
 import { getEstadoMesa, crearSolicitud } from '../../services/api';
 import { GiChecklist, GiKetchup, GiMagicSwirl, GiSpellBook, GiSaltShaker, GiGlassShot, GiChiliPepper, GiHoodedFigure } from 'react-icons/gi';
 import logo from '../../assets/logo-caldero.png';
-import { encriptar, desencriptar } from '../../utils/cryptoUtils';
+import { desencriptar } from '../../utils/cryptoUtils';
 
 const solicitudes = [
   { tipo: 'ordenar', icono: <GiChecklist />, clase: styles.servilletas },
