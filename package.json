@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.3.0",
+    "@coreui/react": "^5.7.0",
+    "@coreui/utils": "^2.0.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@iconify/react": "^6.0.0",
     "axios": "^1.9.0",
+    "bootstrap": "^5.3.6",
     "crypto-js": "^4.2.0",
     "lottie-react": "^2.4.1",
     "react": "^19.1.0",
