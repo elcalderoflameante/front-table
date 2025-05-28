@@ -24,7 +24,6 @@ export const crearSolicitud = (data) => api.post('/solicitudes', data);
 
 // Función para Login.jsx
 export const login = (data) => api.post('/auth/login', data);
-export const registrarSuscripcionPush = (subscription) =>
-  api.post('/subscribe', subscription);
+export const registrarSuscripcionPush = (subscription) => api.post('/push/subscribe', subscription);
 
 export default api;
