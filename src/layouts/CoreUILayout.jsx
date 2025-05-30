@@ -24,7 +24,7 @@ import avatarImg from '../assets/avatar.png'; // Usa tu imagen de avatar aquí
 
 export default function CoreUILayout({ children, onLogout, title, breadcrumbs = [] }) {
   const location = useLocation();
-  const [sidebarVisible, setSidebarVisible] = useState(true);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   return (
     <div className="min-vh-100 d-flex">
@@ -64,7 +64,6 @@ export default function CoreUILayout({ children, onLogout, title, breadcrumbs = 
       >
         <CHeader className="mb-4 bg-white shadow-sm d-flex align-items-center">
           <CButton
-            color="light"
             variant="ghost"
             size="sm"
             className="me-3"

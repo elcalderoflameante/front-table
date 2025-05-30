@@ -7,14 +7,12 @@ import {
     CCol,
     CCard,
     CCardBody,
-    CCardHeader,
     CCardGroup,
     CForm,
     CFormInput,
     CInputGroup,
     CInputGroupText,
-    CButton,
-    CAlert
+    CButton
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilUser, cilLockLocked } from '@coreui/icons';
@@ -68,6 +66,11 @@ export default function Login({ onLogin }) {
                                         <img src={logo} alt="Logo" style={{ width: 90, marginBottom: 10 }} />
                                         <h4 className="mb-0" style={{ color: '#b8860b', fontWeight: 'bold' }}>Ingreso de Meseros</h4>
                                     </div>
+                                    {/* Mensaje solo visible en móvil */}
+                                    <div className="d-md-none text-center mb-3">
+                                        <h5>Bienvenido</h5>
+                                        <p>Por favor ingresa tus credenciales para acceder al sistema de restaurante.</p>
+                                    </div>
                                     <CForm onSubmit={handleSubmit}>
                                         <CInputGroup className="mb-3">
                                             <CInputGroupText>
@@ -106,8 +109,9 @@ export default function Login({ onLogin }) {
                                     </CForm>
                                 </CCardBody>
                             </CCard>
-                            <CCard className="text-white bg-warning py-5 d-md-down-none" style={{ width: '44%' }}>
-                                <CCardBody className="text-center d-flex flex-column justify-content-center align-items-center">
+                            {/* Mensaje solo visible en escritorio */}
+                            <CCard className="text-white bg-warning py-5 d-none d-md-flex flex-column justify-content-center align-items-center" style={{ width: '44%' }}>
+                                <CCardBody className="text-center">
                                     <div>
                                         <h2>Bienvenido</h2>
                                         <p>Por favor ingresa tus credenciales para acceder al sistema de restaurante.</p>
